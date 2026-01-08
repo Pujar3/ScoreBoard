@@ -23,5 +23,6 @@ public class Scoreboard
             teamOneScore += score;
         }
     }
+
 }
 
