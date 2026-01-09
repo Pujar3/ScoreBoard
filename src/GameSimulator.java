@@ -11,4 +11,13 @@ public class GameSimulator
     {
         new GameSimulator(1000);
     }
+    public GameSimulator(int games) throws FileNotFoundException
+    {
+        for (int i = 0; i < teams.length; i++)
+        {
+            standings[i] = new Team(teams[i]);
+        }
+        play();
+        printStandings();
+    }
 }
