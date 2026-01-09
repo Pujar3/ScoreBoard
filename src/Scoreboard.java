@@ -1,6 +1,3 @@
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 public class Scoreboard
 {
     private String teamOne;
@@ -30,20 +27,6 @@ public class Scoreboard
         {
             if(activeTeam.equals(teamOne)) activeTeam = teamTwo;
             else if(activeTeam.equals(teamTwo)) activeTeam = teamOne;
-        }
-    }
-    public void play() throws FileNotFoundException
-    {
-        Scanner s = new Scanner(new File("Scoreboard.txt"));
-        while (s.hasNext())
-        {
-            String teamOne = s.next();
-            String teamTwo = s.next();
-            Scoreboard sb = new Scoreboard(teamOne, teamTwo);
-            while (s.hasNextInt())
-            {
-                sb.recordPlay(s.nextInt());
-            }
         }
     }
     public String win()

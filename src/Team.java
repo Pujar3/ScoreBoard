@@ -7,7 +7,7 @@ public class Team {
     }
     public void win()
     {
-     wins++
+     wins++;
     }
     public int getWins()
     {

@@ -20,4 +20,54 @@ public class GameSimulator
         play();
         printStandings();
     }
+    public void play() throws FileNotFoundException
+    {
+        Scanner s = new Scanner(new File("Scoreboard.txt"));
+        while (s.hasNext())
+        {
+            String teamOne = s.next();
+            String teamTwo = s.next();
+            Scoreboard sb = new Scoreboard(teamOne, teamTwo);
+            while (s.hasNextInt())
+            {
+                sb.recordPlay(s.nextInt());
+            }
+        }
+        if (sb.win().equals("Red"))
+            standings[0].win();
+        if (sb.win().equals("Orange"))
+            standings[1].win();
+        if (sb.win().equals("Yellow"))
+            standings[2].win();
+        if (sb.win().equals("Green"))
+            standings[3].win();
+        if (sb.win().equals("Blue"))
+            standings[4].win();
+        if (sb.win().equals("Indigo"))
+            standings[5].win();
+        if (sb.win().equals("Violet"))
+            standings[6].win();
+    }
+    public void printStandings() {
+        sort();
+        for (Team t : standings)
+            System.out.println(t + " " + t.getWins());
+    }
+    public void sort() {
+        for (int i = 0; i < standings.length - 1; i++)
+        {
+            int max = 1;
+            for (int j = i + 1; j < standings.length; j++)
+            {
+                if (standings[j].getWins() > standings[max].getWins())
+                    max = j;
+            }
+            if (i != max)
+            {
+                Team temp = standings[i];
+                standings[i] = standings[max];
+                standings[max]=temp;
+            }
+        }
+    }
 }
