@@ -5,7 +5,7 @@ public class GameSimulator
 {
     private static final String[] teams = {
             "Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"
-};
+    };
     private static Team[] standings = new Team[teams.length];
     public static void main(String[] args) throws FileNotFoundException
     {
@@ -32,20 +32,15 @@ public class GameSimulator
             {
                 sb.recordPlay(s.nextInt());
             }
-            if (sb.win().equals("Red"))
-                standings[0].win();
-            if (sb.win().equals("Orange"))
-                standings[1].win();
-            if (sb.win().equals("Yellow"))
-                standings[2].win();
-            if (sb.win().equals("Green"))
-                standings[3].win();
-            if (sb.win().equals("Blue"))
-                standings[4].win();
-            if (sb.win().equals("Indigo"))
-                standings[5].win();
-            if (sb.win().equals("Violet"))
-                standings[6].win();
+            String winner = sb.win();
+            for (Team t : standings)
+            {
+                if (t.toString().equals(winner))
+                {
+                    t.win();
+                    break; // stop once winner is found
+                }
+            }
         }
     }
     public void printStandings() {
