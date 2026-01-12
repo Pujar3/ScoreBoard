@@ -56,7 +56,7 @@ public class GameSimulator
     public void sort() {
         for (int i = 0; i < standings.length - 1; i++)
         {
-            int max = 1;
+            int max = i;
             for (int j = i + 1; j < standings.length; j++)
             {
                 if (standings[j].getWins() > standings[max].getWins())
