@@ -31,9 +31,8 @@ public class Scoreboard
     }
     public String win()
     {
-        if (scoreOne > scoreTwo) return teamOne;
-        if (scoreTwo > scoreeOne) return teamTwo;
+        if (teamOneScore > teamTwoScore) return teamOne;
+        if (teamTwoScore > teamOneScore) return teamTwo;
         return "DRAW";
     }
 }
-
